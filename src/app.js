@@ -7,7 +7,7 @@ import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
-import './Styles/styles.scss';
+import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { Stream } from 'stream';
 
