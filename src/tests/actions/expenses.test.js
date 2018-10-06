@@ -12,8 +12,6 @@ beforeEach((done) => {
     expensesData[id] = { description, note, amount, createdAt };
   });
   database.ref('expenses').set(expensesData).then(() => done());
-
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 });
 
 test('should setup remove expense action object', () => {
@@ -103,15 +101,14 @@ test('should setup set expense action object with data', () => {
   });
 });
 
-// Does not work
-// test('should fetch the expenses from firebase', (done) => {
-//   const store = createMockStore({});
-//   store.dispatch(startSetExpenses()).then(() => {
-//     const actions = store.getActions();
-//     expect(actions[0]).toEqual({
-//       type: 'SET_EXPENSES',
-//       expenses
-//     });
-//     done();
-//   });
-// });
+test('should fetch the expenses from firebase', (done) => {
+  const store = createMockStore({});
+  store.dispatch(startSetExpenses()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_EXPENSES',
+      expenses
+    });
+    done();
+  });
+});
